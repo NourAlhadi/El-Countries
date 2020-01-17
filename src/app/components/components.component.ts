@@ -15,36 +15,13 @@ import * as Rellax from 'rellax';
 
 export class ComponentsComponent implements OnInit, OnDestroy {
     data : Date = new Date();
-
-    page = 4;
-    page1 = 5;
-    page2 = 3;
-    focus;
-    focus1;
-    focus2;
-
     date: {year: number, month: number};
     model: NgbDateStruct;
+    
 
-    public isCollapsed = true;
-    public isCollapsed1 = true;
-    public isCollapsed2 = true;
-
-    state_icon_primary = true;
-
-    constructor( private renderer : Renderer, config: NgbAccordionConfig) {
-        config.closeOthers = true;
-        config.type = 'info';
+    constructor() {
     }
-    isWeekend(date: NgbDateStruct) {
-        const d = new Date(date.year, date.month - 1, date.day);
-        return d.getDay() === 0 || d.getDay() === 6;
-    }
-
-    isDisabled(date: NgbDateStruct, current: {month: number}) {
-        return date.month !== current.month;
-    }
-
+    
     ngOnInit() {
       var rellaxHeader = new Rellax('.rellax-header');
 
