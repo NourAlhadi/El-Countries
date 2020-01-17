@@ -1,0 +1,15 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+    "API_URL": "NOT_DEFINED_YET"
+  },
+  "name": "hebah-public",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
