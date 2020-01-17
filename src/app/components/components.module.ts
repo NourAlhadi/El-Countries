@@ -8,6 +8,9 @@ import { RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components.component';
 import { ComponentsRoutingModule } from './components.routing';
+import { AskComponent } from './ask/ask.component';
+import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
     imports: [
@@ -21,6 +24,9 @@ import { ComponentsRoutingModule } from './components.routing';
       ],
     declarations: [
         ComponentsComponent,
+        AskComponent,
+        HomeComponent,
+        ListComponent
     ],
     exports:[ ComponentsComponent ]
 })

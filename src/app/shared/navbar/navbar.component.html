@@ -9,12 +9,13 @@
           </a>
            <div ngbDropdownMenu>
              <a class="dropdown-header">El-Contries</a>
-             <a class="dropdown-item" href="index">Home</a>
+             <a class="dropdown-item" [routerLink]="['/']">Home</a>
+             <a class="dropdown-item" [routerLink]="['/countries/ask']">Ask</a>
            </div>
          </div>
       </div>
         <div class="navbar-translate">
-            <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Coded with <3 &#013;&#010; By Nour Alhadi Mahmoud">
+            <a class="navbar-brand" [routerLink]="['/']" placement="bottom" ngbTooltip="Coded with <3 &#013;&#010; By Nour Alhadi Mahmoud">
                 El-Countries
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
