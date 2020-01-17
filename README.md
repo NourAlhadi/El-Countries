@@ -2,9 +2,11 @@
 
 This project is my first Angular app, so if anything looks wrong please tell me.
 
+* The template used in this repository is provided by [Creative Tim](https://www.creative-tim.com) thanks guys.
+
 ## About
 
-This app is developed by me in order to learn Angular 8, so there is no cool features.
+This app is developed by me in order to learn Angular 8, so there are no cool features.
 
 ## What it does
 
