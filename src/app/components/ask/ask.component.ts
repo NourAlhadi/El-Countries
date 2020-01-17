@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AskComponent  implements OnInit, OnDestroy {
     
-  private searchBy: string;
-  private query: string;
+  searchBy: string;
+  query: string;
 
   constructor(private _router:Router) {
   }
