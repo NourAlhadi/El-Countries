@@ -11,6 +11,8 @@ import { ComponentsRoutingModule } from './components.routing';
 import { AskComponent } from './ask/ask.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
+import { DetailsComponent } from './details/details.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
     imports: [
@@ -26,7 +28,9 @@ import { ListComponent } from './list/list.component';
         ComponentsComponent,
         AskComponent,
         HomeComponent,
-        ListComponent
+        ListComponent,
+        DetailsComponent,
+        ErrorComponent
     ],
     exports:[ ComponentsComponent ]
 })

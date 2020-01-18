@@ -1,24 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import { SearchService } from '../../_services/search.service';
+import * as Rellax from 'rellax';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
+  items: [];
   private query: string;
   private searchBy: string;
 
   private routeSub: Subscription;
   constructor(private route: ActivatedRoute,
-              private _searchService: SearchService) {
+              private _searchService: SearchService,
+              private router: Router) {
   }
 
   ngOnInit() {
+    this.searchBy = 'name';
+    var rellaxHeader = new Rellax('.rellax-header');
+    var navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.add('navbar-transparent');
+    var body = document.getElementsByTagName('body')[0];
+    body.classList.add('index-page');
+
     this.routeSub = this.route.params.subscribe(params => {
       if (params['param'] === undefined || params['param'].indexOf('_') === -1) {
         this.query = '';
@@ -33,11 +43,17 @@ export class ListComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(){
+    var navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.remove('navbar-transparent');
+    var body = document.getElementsByTagName('body')[0];
+    body.classList.remove('index-page');
+}
+
 
   fetchList() {
     let obsrv: any;
     
-    console.log(this.query + " " + this.searchBy);
     switch(this.searchBy){
       case 'all': obsrv = this._searchService.getAll(); break;
       case 'name': obsrv = this._searchService.getByName(this.query); break;
@@ -50,10 +66,13 @@ export class ListComponent implements OnInit {
     }
 
     obsrv.subscribe(res => {
-      console.log(res);
-      
+      if (!Array.isArray(res)) {
+        res = [res];
+      }
+      this.items = res;
+      console.log(this.items);
     }, err => {
-      console.log(err)
+      this.router.navigate(['/countries/error']);
     });
   }
 }
