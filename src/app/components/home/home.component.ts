@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   ngOnInit() {
       var rellaxHeader = new Rellax('.rellax-header');
-      console.log(document.getElementsByTagName('nav'));
       var navbar = document.getElementsByTagName('nav')[0];
       navbar.classList.add('navbar-transparent');
       var body = document.getElementsByTagName('body')[0];

@@ -70,7 +70,6 @@ export class ListComponent implements OnInit, OnDestroy {
         res = [res];
       }
       this.items = res;
-      console.log(this.items);
     }, err => {
       this.router.navigate(['/countries/error']);
     });

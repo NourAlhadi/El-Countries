@@ -31,7 +31,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
     body.classList.add('index-page');
 
     this.routeSub = this.route.params.subscribe(params => {
-      console.log(params);
       const code = params['param'];
       this.fetchCountry(code);
     });
