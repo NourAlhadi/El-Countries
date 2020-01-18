@@ -4,7 +4,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes =[
-    { path: '', loadChildren: 'app/components/components.module#ComponentsModule'},
+    { path: '', redirectTo: 'countries', pathMatch: 'full' },
+    { path: 'countries', loadChildren: './components/components.module#ComponentsModule'},
     { path: '**', redirectTo: ''},
 ];
 
