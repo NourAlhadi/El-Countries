@@ -73,4 +73,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
       this.router.navigate(['/countries/error']);
     });
   }
+
+  goTo(url) {
+    this.router.navigate([url]);
+  }
 }
