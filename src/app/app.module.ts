@@ -8,12 +8,17 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderService } from './_services/loader.service';
+import { LoaderInterceptor } from './_interceptors/loader.interceptor';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        LoaderComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -22,9 +27,13 @@ import { HttpClientModule } from '@angular/common/http';
         RouterModule,
         AppRoutingModule,
         ComponentsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatProgressSpinnerModule,
     ],
-    providers: [],
+    providers: [
+        LoaderService,
+        { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
